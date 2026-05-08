@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "PowerShell(New-Item *)",
-      "Bash(dotnet build *)"
+      "Bash(dotnet build *)",
+      "PowerShell(Move-Item *)",
+      "PowerShell(Remove-Item *)"
     ]
   }
 }
