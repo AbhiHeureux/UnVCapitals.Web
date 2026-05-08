@@ -1,0 +1,158 @@
+@{
+    var activePage = ViewData["ActivePage"] as string ?? "";
+    string ActiveClass(string page) => activePage == page ? "active" : "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="@(ViewData["Description"] ?? "U & V Financial Knowledge - Educational and awareness initiative for financial literacy")">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - U &amp; V Financial Knowledge</title>
+    <link rel="icon" href="~/vaultedge/img/core-img/favicon.ico">
+    <link rel="stylesheet" href="~/vaultedge/style.css">
+    <link rel="stylesheet" href="~/vaultedge/css/custom-override.css">
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="ve-header" id="ve-sticky">
+        <div class="container-fluid ve-nav-wrap">
+            <div class="ve-logo">
+                <a asp-controller="VaultEdge" asp-action="Index">
+                    <span class="ve-logo-icon">U</span>
+                    <span class="ve-logo-text">U &amp; <strong>V</strong></span>
+                </a>
+            </div>
+            <nav class="ve-nav">
+                <ul>
+                    <li><a asp-controller="VaultEdge" asp-action="Index" class="@ActiveClass("Home")">Home</a></li>
+                    <li class="has-drop">
+                        <a asp-controller="VaultEdge" asp-action="About" class="@ActiveClass("About")">About <i class="fa fa-angle-down"></i></a>
+                        <ul class="ve-dropdown">
+                            <li><a asp-controller="VaultEdge" asp-action="About">About Us</a></li>
+                            <li><a asp-controller="VaultEdge" asp-action="Services">Our Services</a></li>
+                            <li><a asp-controller="VaultEdge" asp-action="Elements">UI Elements</a></li>
+                        </ul>
+                    </li>
+                    <li><a asp-controller="VaultEdge" asp-action="Services" class="@ActiveClass("Services")">Services</a></li>
+                    <li class="has-drop">
+                        <a href="#">Focus Areas <i class="fa fa-angle-down"></i></a>
+                        <ul class="ve-dropdown">
+                            <li><a href="#">Savings &amp; Budgeting</a></li>
+                            <li><a href="#">Insurance Awareness</a></li>
+                            <li><a href="#">Tax Basics</a></li>
+                            <li><a href="#">Investment Education</a></li>
+                        </ul>
+                    </li>
+                    <li><a asp-controller="VaultEdge" asp-action="Insights" class="@ActiveClass("Insights")">Insights</a></li>
+                    <li><a asp-controller="VaultEdge" asp-action="Contact" class="@ActiveClass("Contact")">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="ve-nav-cta">
+                <a asp-controller="VaultEdge" asp-action="Contact" class="ve-cta-btn">Get In Touch <i class="fa fa-arrow-right"></i></a>
+            </div>
+            <button class="ve-toggler" id="ve-toggle">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="ve-mobile-menu" id="ve-mobile-menu">
+            <ul>
+                <li><a asp-controller="VaultEdge" asp-action="Index">Home</a></li>
+                <li><a asp-controller="VaultEdge" asp-action="About">About</a></li>
+                <li><a asp-controller="VaultEdge" asp-action="Services">Services</a></li>
+                <li><a href="#">Focus Areas</a></li>
+                <li><a asp-controller="VaultEdge" asp-action="Insights">Insights</a></li>
+                <li><a asp-controller="VaultEdge" asp-action="Contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="ve-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4 mb-50">
+                    <div class="ve-footer-brand">
+                        <a asp-controller="VaultEdge" asp-action="Index" class="ve-footer-logo">
+                            <span class="ve-logo-icon">U</span>
+                            <span class="ve-logo-text">U &amp; <strong>V</strong></span>
+                        </a>
+                        <p>U &amp; V Financial Knowledge &mdash; an educational and awareness initiative dedicated to spreading financial literacy in simple language.</p>
+                        <div class="ve-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-2 mb-50">
+                    <h5 class="ve-footer-title">Quick Links</h5>
+                    <ul class="ve-footer-links">
+                        <li><a asp-controller="VaultEdge" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="VaultEdge" asp-action="About">About Us</a></li>
+                        <li><a asp-controller="VaultEdge" asp-action="Services">Services</a></li>
+                        <li><a asp-controller="VaultEdge" asp-action="Insights">Insights</a></li>
+                        <li><a asp-controller="VaultEdge" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 mb-50">
+                    <h5 class="ve-footer-title">Focus Areas</h5>
+                    <ul class="ve-footer-links">
+                        <li><a href="#">Financial Awareness</a></li>
+                        <li><a href="#">Savings &amp; Budgeting</a></li>
+                        <li><a href="#">Insurance Awareness</a></li>
+                        <li><a href="#">Tax Basics</a></li>
+                        <li><a href="#">Retirement Planning</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 mb-50">
+                    <h5 class="ve-footer-title">Get In Touch</h5>
+                    <ul class="ve-footer-contact">
+                        <li><i class="fa fa-map-marker"></i> Marris Road, Aligarh</li>
+                        <li><i class="fa fa-envelope"></i> unvcapital@@gmail.com</li>
+                        <li><i class="fa fa-phone"></i> +91 94571 07010</li>
+                        <li><i class="fa fa-whatsapp"></i> +91 97617 75567</li>
+                        <li><i class="fa fa-clock-o"></i> Mon&ndash;Sat, 10:00 AM &ndash; 7:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p style="font-size:13px;color:rgba(255,255,255,0.55);border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;margin-bottom:0;">
+                        <strong>Disclaimer:</strong> All information shared on this platform is intended solely for educational and awareness purposes. We are not SEBI-registered investment advisors unless specifically stated. Please consult qualified professionals before making financial decisions.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="ve-footer-bottom">
+            <div class="container">
+                <div class="ve-footer-bottom-inner">
+                    <p>Copyright &copy; @DateTime.Now.Year U &amp; V Financial Knowledge. All Rights Reserved.</p>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/vaultedge/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="~/vaultedge/js/bootstrap/popper.min.js"></script>
+    <script src="~/vaultedge/js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/vaultedge/js/plugins/plugins.js"></script>
+    <script src="~/vaultedge/js/active.js"></script>
+    <script src="~/vaultedge/js/vaultedge.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
