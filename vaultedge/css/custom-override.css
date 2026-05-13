@@ -708,6 +708,10 @@ body { padding-top:0; }
 
 /* Team Cards */
 .ve-team-section { background:var(--ve-light); }
+.ve-team-section .ve-mvv-card { background:#fff; border:1px solid var(--ve-border); }
+.ve-team-section .ve-mvv-card:hover { background:#fff; border-color:var(--ve-gold); transform:translateY(-4px); box-shadow:var(--ve-shadow); }
+.ve-team-section .ve-mvv-card h4 { color:var(--ve-dark); }
+.ve-team-section .ve-mvv-card p { color:var(--ve-text); }
 .ve-team-card { background:#fff; border-radius:var(--ve-radius); overflow:hidden; border:1px solid var(--ve-border); transition:var(--ve-trans); margin-bottom:28px; }
 .ve-team-card:hover { transform:translateY(-5px); box-shadow:var(--ve-shadow); }
 .ve-team-img { height:260px; background-size:cover; background-position:center top; }
